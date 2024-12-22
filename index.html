@@ -22,6 +22,14 @@
     </div>
 
     <div class="edit-container">
+
+        <div class="text-nav">
+            <button>nav</button>
+            <button>add</button>
+            <button>delete</button>
+        </div>
+
+        <div class="text-edit">
         <div class="font">
             <input type="text">
             <button>+</button>
@@ -34,12 +42,16 @@
         </div>
         <div class="color-picker">
             <button>stroke</button>
-            <button>fill</button>
+            <button> <div class="form"><label for="color">fill </label>
+                <input type="color" onsubmit="fillColor(event)" id="color" name="color" form="frmRegister" value="#ff0000" id="bgc-color" />
+            </div></button>
         </div>
+        </div>
+
         <div class="saving-container">
             <button>save</button>
             <button><a href="#" onclick="downloadCanvas(this)" download="file-name">Download</a></button>
-            <button>delete</button>
+            <button>share</button>
         </div>    
     </div>
     

@@ -32,3 +32,8 @@ function downloadCanvas(elLink) {
     // Set a name for the downloaded file
     elLink.download = 'my-img'
 }
+
+function fillColor(event){
+    var color = document.getElementById("color").value;
+    document.body.style.backgroundColor = color;
+}
