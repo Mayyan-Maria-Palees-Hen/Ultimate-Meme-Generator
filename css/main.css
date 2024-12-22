@@ -1,0 +1,31 @@
+* {
+    box-sizing: border-box;
+}
+
+body{
+    background-color: lightblue;
+    /* margin: 0px; */
+    /* padding: 0px; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    justify-content: center;
+}
+
+
+.canvas-container{
+width: 80vw;
+margin: 10px auto;
+border: 1px solid black;
+}
+
+canvas{
+    background-color: white;
+    border: 1px solid black;
+}
+
+.select-img-container img:hover{
+width: 300px;
+cursor: pointer;
+}
