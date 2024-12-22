@@ -7,18 +7,51 @@
     <title>Ultimate Meme Generator</title>
 </head>
 <body onload="onInit()">
+    <div class="main-container">
+
+    <div class="header">
     <h1>Ultimate Meme Generator</h1>
+    <div class="nav-bar"></div>
+    </div>
+
+    <div class="main-nav">
 
     <div class="canvas-container">
-        <canvas width="400" height="400">
-
-        </canvas>
+        <canvas width="500" height="500"></canvas>
         <input type="text" id="meme-txt">
+    </div>
+
+    <div class="edit-container">
+        <div class="font">
+            <input type="text">
+            <button>+</button>
+            <button>-</button>
+        </div>
+        <div class="align-text">
+            <button>align left</button>
+            <button>align center</button>
+            <button>align right</button>
+        </div>
+        <div class="color-picker">
+            <button>stroke</button>
+            <button>fill</button>
+        </div>
+        <div class="saving-container">
+            <button>save</button>
+            <button><a href="#" onclick="downloadCanvas(this)" download="file-name">Download</a></button>
+            <button>delete</button>
+        </div>    
+    </div>
+    
     </div>
 
     <section class="gallery-controller" id="gallery-controller">
 
     </section>
+
+
+
+</div>
   
     
     <script src="js/memeService.js"></script>

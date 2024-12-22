@@ -1,8 +1,9 @@
 'use strict'
 
 function renderGallery() {
-    var gImgs = [{ id: 1, url: 'img/1.jpg', keywords: ['funny', 'cat'] },
-    { id: 2, url: 'img/2.jpg', keywords: ['funny', 'cat'] }]
+    var gImgs = [{ id: 1, url: 'img/1.jpg', keywords: ['funny', 'guy'] },
+    { id: 2, url: 'img/2.jpg', keywords: ['cute', 'dog'] }]
+
     const gallery = document.getElementById('gallery-controller')
     gImgs.forEach((img) => {
         const imgEl = document.createElement('img')
@@ -17,3 +18,5 @@ function onImgSelect(id){
     setImg(id) 
     renderMeme()
 }
+
+

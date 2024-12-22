@@ -5,9 +5,9 @@ var gMeme = {
     selectedLineIdx: 0,
     lines: [
         {
-            txt: 'I sometimes eat Falafel',
+            txt: 'Add Text Here',
             size: 20,
-            color: 'red'
+            color: 'white'
         }
     ]
 }
@@ -22,4 +22,13 @@ function setLineTxt(text) {
 
 function setImg(id) {
     gMeme.selectedImgId = id
+}
+
+function downloadCanvas(elLink) {
+    const dataUrl = gElCanvas.toDataURL()
+    // console.log('data', data) 
+
+    elLink.href = dataUrl
+    // Set a name for the downloaded file
+    elLink.download = 'my-img'
 }
