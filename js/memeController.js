@@ -2,9 +2,15 @@
 
 var gElCanvas
 var gCtx
+document.getElementById('meme-txt').addEventListener('input', (event)=>{
+    setLineTxt(event.target.value)
+    renderMeme()
+ })
+
 
 function onInit() {
     renderMeme()
+    
 }
 
 function renderMeme() {
