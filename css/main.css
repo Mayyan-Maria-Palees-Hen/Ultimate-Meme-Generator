@@ -25,7 +25,7 @@ canvas{
     border: 1px solid black;
 }
 
-.select-img-container img:hover{
-width: 300px;
+.gallery-controller img:hover{
+/* width: 300px; */
 cursor: pointer;
 }

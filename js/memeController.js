@@ -10,6 +10,7 @@ document.getElementById('meme-txt').addEventListener('input', (event)=>{
 
 function onInit() {
     renderMeme()
+    renderGallery()
     
 }
 
@@ -31,4 +32,6 @@ function renderMeme() {
     }
 
 }
+
+
 
