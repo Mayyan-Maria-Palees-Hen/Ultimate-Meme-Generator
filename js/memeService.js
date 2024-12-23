@@ -33,7 +33,3 @@ function downloadCanvas(elLink) {
     elLink.download = 'my-img'
 }
 
-function fillColor(event){
-    var color = document.getElementById("color").value;
-    document.body.style.backgroundColor = color;
-}

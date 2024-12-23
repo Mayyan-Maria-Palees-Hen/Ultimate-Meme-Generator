@@ -33,5 +33,12 @@ function renderMeme() {
 
 }
 
+document.getElementById('color').addEventListener('input',(event)=>{
+    const selectedColor = event.target.value
+    const lineIdx = gMeme.selectedLineIdx
+    gMeme.lines[lineIdx].color = selectedColor
+    renderMeme()
+})
+
 
 
