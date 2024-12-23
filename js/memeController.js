@@ -2,16 +2,16 @@
 
 var gElCanvas
 var gCtx
-document.getElementById('meme-txt').addEventListener('input', (event)=>{
+document.getElementById('meme-txt').addEventListener('input', (event) => {
     setLineTxt(event.target.value)
     renderMeme()
- })
+})
 
 
 function onInit() {
     renderMeme()
     renderGallery()
-    
+
 }
 
 function renderMeme() {
@@ -33,11 +33,27 @@ function renderMeme() {
 
 }
 
-document.getElementById('color').addEventListener('input',(event)=>{
+document.getElementById('color').addEventListener('input', (event) => {
     const selectedColor = event.target.value
     const lineIdx = gMeme.selectedLineIdx
     gMeme.lines[lineIdx].color = selectedColor
     renderMeme()
+})
+
+document.getElementById('increase').addEventListener('click', (event) => {
+
+    const lineIdx = gMeme.selectedLineIdx
+    gMeme.lines[lineIdx].size += 2
+    renderMeme()
+})
+
+document.getElementById('decrease').addEventListener('click', (event) => {
+
+    const lineIdx = gMeme.selectedLineIdx
+    if (gMeme.lines[lineIdx].size > 10) {
+        gMeme.lines[lineIdx].size -= 2
+        renderMeme()
+    }
 })
 
 
