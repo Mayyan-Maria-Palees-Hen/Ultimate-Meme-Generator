@@ -7,8 +7,10 @@ var gMeme = {
         {
             txt: 'Add Text Here',
             size: 20,
-            color: 'white'
-        }
+            color: 'white',
+            x: 250, y: 50,
+        },
+        
     ]
 }
 
@@ -33,3 +35,14 @@ function downloadCanvas(elLink) {
     elLink.download = 'my-img'
 }
 
+function onAddLine() {
+    const newY = gMeme.lines.length * 50 + 50
+    gMeme.lines.push({ txt: 'Add Text Here', size: 20, color: 'white', x: 250, y: newY })
+    gMeme.selectedLineIdx = gMeme.lines.length - 1
+    renderMeme()
+}
+
+function onSwitch() {
+    gMeme.selectedLineIdx = (gMeme.selectedLineIdx + 1) % gMeme.lines.length//chek next aline
+    renderMeme()
+}
