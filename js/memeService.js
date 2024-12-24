@@ -9,6 +9,7 @@ var gMeme = {
             size: 20,
             color: 'white',
             x: 250, y: 50,
+            align:'center',
         },
         
     ]
