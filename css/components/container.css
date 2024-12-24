@@ -1,0 +1,10 @@
+.main-container{
+    display: flex;
+    flex-direction: column;
+}
+
+
+.edit-container{
+    display: flex;
+    flex-direction: column;
+}

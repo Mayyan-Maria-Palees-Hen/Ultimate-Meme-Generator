@@ -1,0 +1,14 @@
+.canvas-container{
+    /* width: 80vw; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 10px auto;
+    /* border: 1px solid black; */
+    }
+    
+    canvas{
+        background-color: white;
+        border: 1px solid black;
+    }
+    
