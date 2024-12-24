@@ -1,12 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/style.css">
-    <title>Ultimate Meme Generator</title>
-</head>
-<body onload="onInit()">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="css/style.css">
+        <title>Ultimate Meme Generator</title>
+    </head>
+    <body onload="onInit()">
+
+    <section class="gallery-controller" id="gallery-controller">
+
     <div class="main-container main-header">
 
     <div class="main-header">
@@ -26,19 +29,24 @@
         <div class="text-nav">
             <button onclick="onSwitch()">nav</button>
             <button onclick="onAddLine()">add</button>
-            <button>delete</button>
+            <button id="delete-lign">delete</button>
         </div>
 
         <div class="text-edit">
         <div class="font">
-            <input type="text">
+            <select  id="font-family">
+                <option value="Ariel">Ariel</option>
+                <option value="Times New Roman">Times New Roman</option>
+                <option value="Georgia">Georgia</option>
+                <option value="Poppins">Poppins</option>
+            </select>
             <button id="increase">+</button>
             <button id="decrease">-</button>
         </div>
         <div class="align-text">
-            <button>align left</button>
-            <button>align center</button>
-            <button>align right</button>
+            <button id="align-left">align left</button>
+            <button id="align-center">align center</button>
+            <button id="align-right">align right</button>
         </div>
         <div class="color-picker">
             <button>stroke</button>
@@ -57,7 +65,6 @@
     
     </div>
 
-    <section class="gallery-controller" id="gallery-controller">
 
     </section>
 
@@ -69,5 +76,7 @@
     <script src="js/memeService.js"></script>
     <script src="js/memeController.js"></script>
     <script src="js/galleryController.js"></script>
+    <script src="js/main.js"></script>
+    
 </body>
 </html>

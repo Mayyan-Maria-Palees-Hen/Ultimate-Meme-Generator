@@ -1,0 +1,10 @@
+#gallery {
+    display: none;
+  }
+  
+  #gallery.active {
+    display: flex; /* Enable Flexbox */
+    flex-wrap: wrap; /* Allow wrapping of images */
+    gap: 15px; /* Add space between images */
+    justify-content: center; /* Center the images */
+  }

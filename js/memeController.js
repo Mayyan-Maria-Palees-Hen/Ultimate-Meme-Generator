@@ -8,11 +8,10 @@ document.getElementById('meme-txt').addEventListener('input', (event) => {
 })
 
 
-function onInit() {
-    renderMeme()
-    renderGallery()
-
-}
+// function onInit() {
+//     renderMeme()
+//     renderGallery()
+// }
 
 function renderMeme() {
 
@@ -23,7 +22,8 @@ function renderMeme() {
     const img = new Image()
     img.src = `img/${meme.selectedImgId}.jpg`
     img.onload = () => {
-        gCtx.drawImage(img, 0, 0, img.naturalWidth, img.naturalHeight)
+        gElCanvas.height = (img.naturalHeight / img.naturalWidth) * gElCanvas.width
+        gCtx.drawImage(img, 0, 0, gElCanvas.width, gElCanvas.height)
         meme.lines.forEach((line, idx) => {
             drawText(gCtx, line, idx === meme.selectedLineIdx)
         })
@@ -31,7 +31,8 @@ function renderMeme() {
 }
 
 function drawText(gCtx, line, isSelected) {
-    gCtx.font = `${line.size}px Ariel`
+    gCtx.font = `${line.size}px ${line.font || 'Ariel'}`
+    console.log(gCtx.font)
     gCtx.fillStyle = line.color
     gCtx.textAlign = line.align
     gCtx.fillText(line.txt, line.x, line.y)
@@ -113,8 +114,59 @@ function onCanvasClick(ev) {
         // console.log(textInput);
         textInput.value = gMeme.lines[clickedLineIdx].txt;
 
-        renderMeme();
+        renderMeme()
     }
 }
+
+document.getElementById('font-family').addEventListener('change', (event) => {
+    const selectedFont = event.target.value
+    const selectedLine = gMeme.lines[gMeme.selectedLineIdx]
+    selectedLine.font = selectedFont
+    // console.log(selectedFont)
+    renderMeme()
+})
+
+document.getElementById('align-left').addEventListener('click', () => {
+    const selectedLine = gMeme.lines[gMeme.selectedLineIdx]
+    selectedLine.align = 'left'
+
+    renderMeme()
+})
+
+document.getElementById('align-right').addEventListener('click', () => {
+    const selectedLine = gMeme.lines[gMeme.selectedLineIdx]
+    selectedLine.align = 'right'
+
+    renderMeme()
+})
+
+document.getElementById('align-center').addEventListener('click', () => {
+    const selectedLine = gMeme.lines[gMeme.selectedLineIdx]
+    selectedLine.align = 'center'
+
+    renderMeme()
+})
+
+document.addEventListener('keydown', (event) => {
+    event.preventDefault()
+    const selectedLine = gMeme.lines[gMeme.selectedLineIdx]
+    if (event.key === 'ArrowUp') {
+        selectedLine.y -= 10
+        renderMeme()
+    } else if (event.key === 'ArrowDown') {
+        selectedLine.y += 10
+        renderMeme()
+    }
+})
+
+document.getElementById('delete-lign').addEventListener('click', () => {
+    const selectedLineIdx = gMeme.selectedLineIdx
+    if (gMeme.lines.length > 1) {
+        gMeme.lines.splice(selectedLineIdx, 1)
+        gMeme.selectedLineIdx = gMeme.lines.length - 1
+        renderMeme()
+    }
+})
+
 
 
