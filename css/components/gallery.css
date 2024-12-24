@@ -8,3 +8,15 @@
     gap: 15px; /* Add space between images */
     justify-content: center; /* Center the images */
   }
+
+  .gallery-controller img:hover{
+    cursor: pointer;
+    }
+
+    .gallery-controller{
+      display: flex;
+      flex-direction: column;
+      gap: 25px;
+
+    }
+

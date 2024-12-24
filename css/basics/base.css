@@ -13,8 +13,13 @@ body{
 }
 
 
-.gallery-controller img:hover{
-    cursor: pointer;
+
+    img {
+        width: 80vh;
+        overflow-clip-margin: content-box;
+        overflow: clip;
+        border-radius: 10px;
+        border: 10px;
     }
 
     
