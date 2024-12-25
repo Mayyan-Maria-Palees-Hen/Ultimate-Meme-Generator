@@ -7,7 +7,6 @@ document.getElementById('meme-txt').addEventListener('input', (event) => {
     renderMeme()
 })
 
-
 function onInit() {
     renderMeme()
     renderGallery()
@@ -32,13 +31,14 @@ function renderMeme() {
 
 function drawText(gCtx, line, isSelected) {
     gCtx.font = `${line.size}px ${line.font || 'Ariel'}`
-    console.log(gCtx.font)
+    // console.log(gCtx.font)
     gCtx.fillStyle = line.color
     gCtx.textAlign = line.align
     gCtx.fillText(line.txt, line.x, line.y)
-    if (isSelected) {
-        drewFrame(gCtx, line)
-    }
+    gCtx.strokeStyle = line.borderColor
+    // if (isSelected) {
+    //     drewFrame(gCtx, line)
+    // }
 }
 
 function drewFrame(gCtx, line) {
@@ -48,16 +48,25 @@ function drewFrame(gCtx, line) {
     // Measure the width of the text
     const textMetrics = gCtx.measureText(line.txt);
     const textWidth = textMetrics.width;
+    var rectX
+    if (line.align === 'center') {
+        rectX = line.x - textWidth / 2
+    } else if (line.align === 'left') {
+        rectX = line.x
+    } else if (line.align === 'right') {
+        rectX = line.x - textWidth
+    }
 
     // Use actual bounding box metrics for accurate vertical positioning
-    const textHeight = textMetrics.actualBoundingBoxAscent + textMetrics.actualBoundingBoxDescent;
+    // const textHeight = textMetrics.actualBoundingBoxAscent + textMetrics.actualBoundingBoxDescent;
 
     // Calculate rectangle dimensions
-    const x = line.x - textWidth / 2; // Center the rectangle horizontally
-    const y = line.y - textMetrics.actualBoundingBoxAscent; // Top of the text
-    const height = textHeight; // Total height of the text
+    // const x = line.x - textWidth / 2; // Center the rectangle horizontally
+    // const y = line.y - textMetrics.actualBoundingBoxAscent; // Top of the text
+    const rectY = line.y - line.size * 0.8
+    const height = line.size // Total height of the text
 
-    gCtx.strokeRect(x, y, textWidth, height);
+    gCtx.strokeRect(rectX, rectY, textWidth, height)
 }
 
 
@@ -65,6 +74,13 @@ document.getElementById('color').addEventListener('input', (event) => {
     const selectedColor = event.target.value
     const lineIdx = gMeme.selectedLineIdx
     gMeme.lines[lineIdx].color = selectedColor
+    renderMeme()
+})
+
+document.getElementById('color-stroke').addEventListener('input', (event) => {
+    const selectedColor = event.target.value
+    const lineIdx = gMeme.selectedLineIdx
+    gMeme.lines[lineIdx].borderColor = selectedColor
     renderMeme()
 })
 
@@ -87,8 +103,8 @@ document.getElementById('decrease').addEventListener('click', (event) => {
 document.getElementById('canvas').addEventListener('click', onCanvasClick)
 
 function onCanvasClick(ev) {
-    const canvas = document.getElementById("canvas");
-    const rect = canvas.getBoundingClientRect();
+    const canvas = document.getElementById("canvas")
+    const rect = canvas.getBoundingClientRect()
 
     // Get click coordinates relative to the canvas
     const clickX = ev.clientX - rect.left;
@@ -96,23 +112,34 @@ function onCanvasClick(ev) {
 
     // Check if the click falls within any line's bounding box
     const clickedLineIdx = gMeme.lines.findIndex((line) => {
-        const textMetrics = canvas.getContext("2d").measureText(line.txt);
+        const textMetrics = canvas.getContext("2d").measureText(line.txt)
         const textWidth = textMetrics.width;
 
+        var rectX
+        if (line.align === 'center') {
+            rectX = line.x - textWidth / 2
+        } else if (line.align === 'left') {
+            rectX = line.x
+        } else if (line.align === 'right') {
+            rectX = line.x - textWidth
+        }
+
         return (
-            clickX >= line.x - textWidth / 2 &&
-            clickX <= line.x + textWidth / 2 &&
-            clickY >= line.y - line.size &&
+            clickX >= rectX &&
+            clickX <= rectX + textWidth &&
+            clickY >= line.y - line.size * 0.8 &&
             clickY <= line.y
-        );
-    });
+        )
+    })
 
     if (clickedLineIdx !== -1) {
-        gMeme.selectedLineIdx = clickedLineIdx;
+        const line = gMeme.lines[clickedLineIdx]
+        drewFrame(gCtx, line)
+        gMeme.selectedLineIdx = clickedLineIdx
 
-        const textInput = document.getElementById("meme-txt");
+        const textInput = document.getElementById("meme-txt")
         // console.log(textInput);
-        textInput.value = gMeme.lines[clickedLineIdx].txt;
+        textInput.value = gMeme.lines[clickedLineIdx].txt
 
         renderMeme()
     }
@@ -148,7 +175,7 @@ document.getElementById('align-center').addEventListener('click', () => {
 })
 
 document.addEventListener('keydown', (event) => {
-    event.preventDefault()
+
     const selectedLine = gMeme.lines[gMeme.selectedLineIdx]
     if (event.key === 'ArrowUp') {
         selectedLine.y -= 10
@@ -156,6 +183,7 @@ document.addEventListener('keydown', (event) => {
     } else if (event.key === 'ArrowDown') {
         selectedLine.y += 10
         renderMeme()
+        event.preventDefault()
     }
 })
 

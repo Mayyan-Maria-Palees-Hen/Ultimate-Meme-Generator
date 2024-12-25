@@ -32,7 +32,8 @@ function onImgSelect(id) {
     renderMeme()
 }
 
-function showGallery(){
+function showGallery() {
+    resetMeme()
     document.getElementById('gallery-controller').hidden = false
     document.getElementById('editor-controller').hidden = true
 }

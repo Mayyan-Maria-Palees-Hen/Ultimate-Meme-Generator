@@ -11,6 +11,7 @@ var gMeme = {
             x: 250, y: 50,
             align: 'center',
             font: 'Ariel',
+            borderColor: 'red'
         },
 
     ]
@@ -39,7 +40,10 @@ function downloadCanvas(elLink) {
 
 function onAddLine() {
     const newY = gMeme.lines.length * 50 + 50
-    gMeme.lines.push({ txt: 'Add Text Here', size: 20, color: 'white', x: 250, y: newY, font: 'Ariel', align: 'center' })
+    gMeme.lines.push({
+        txt: 'Add Text Here', size: 20,
+        color: 'white', x: 250, y: newY, font: 'Ariel', align: 'center', borderColor: 'red'
+    })
     gMeme.selectedLineIdx = gMeme.lines.length - 1
     renderMeme()
 }
@@ -47,6 +51,23 @@ function onAddLine() {
 function onSwitch() {
     gMeme.selectedLineIdx = (gMeme.selectedLineIdx + 1) % gMeme.lines.length//chek next aline
     renderMeme()
+}
+
+function resetMeme() {
+    gMeme.selectedImgId = 1
+    gMeme.selectedLineIdx = 0
+    gMeme.lines = [
+        {
+            txt: 'Add Text Here',
+            size: 20,
+            color: 'white',
+            x: 250, y: 50,
+            align: 'center',
+            font: 'Ariel',
+            borderColor: 'red'
+        },
+
+    ]
 }
 
 
