@@ -4,54 +4,55 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+        integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"/>
+        
         <title>Ultimate Meme Generator</title>
     </head>
 
     <body onload="onInit()">
     <div class="main-header">
     <h1>Ultimate Meme Generator</h1>
-    <button id="back-to-gallery" onclick="showGallery()">Gallery</button>
+  <!--   <button id="back-to-gallery" onclick="showGallery()">Gallery</button> -->
     <div class="nav-bar"></div>
     </div>
 
-    <section class="gallery-controller" id="gallery-controller"></section>
+    <section class="gallery-controller " id="gallery-controller"></section>
 
     <section class="editor-controller" id="editor-controller" hidden>
 
-    <div class="main-container main-header">
+    <div class="main-container main-header ">
 
     <div class="main-nav">
 
     <div class="canvas-container">
         <canvas id="canvas" width="500" height="500"></canvas>
-        <input type="text" id="meme-txt">
+        
     </div>
 
+    <div class="edit-container-bgc flex">
     <div class="edit-container">
 
-        <div class="text-nav">
-            <button onclick="onSwitch()">nav</button>
-            <button onclick="onAddLine()">add</button>
-            <button id="delete-lign">delete</button>
+        <div class="text-nav flex space-around">
+            <button onclick="onSwitch()"><i class="fa-solid fa-retweet" style="color: #F6F4F0;"></i></button>
+            <button onclick="onAddLine()"><i class="fa-solid fa-plus" style="color: #F6F4F0;"></i></button>
+            <button id="delete-lign"><i class="fa-solid fa-trash" style="color: #F6F4F0;"></i></button>
         </div>
+        <div class="line"></div>
 
         <div class="text-edit">
-        <div class="font">
+        <div class="font flex space-around">
             <select  id="font-family">
-                <option value="Ariel">Ariel</option>
-                <option value="Verdana">Verdana</option>
-                <option value="Courier New">Courier New</option>
-                <option value="Comic Sans MS">Comic Sans MS</option>
+                <option value="Ariel" style="color:black">Ariel</option>
+                <option value="Verdana" style="color:black">Verdana</option>
+                <option value="Courier New" style="color:black">Courier New</option>
+                <option value="Comic Sans MS"style="color:black">Comic Sans MS</option>
             </select>
-            <button id="increase">+</button>
-            <button id="decrease">-</button>
+            <button id="increase">A+</button>
+            <button id="decrease">A-</button>
         </div>
-        <div class="align-text">
-            <button id="align-left">align left</button>
-            <button id="align-center">align center</button>
-            <button id="align-right">align right</button>
-        </div>
-        <div class="color-picker">
+        <div class="color-picker flex space-around">
             <button><div class="form"><label for="color">stroke </label>
                 <input type="color"  id="color-stroke" name="color" form="frmRegister" value="#ff0000" id="bgc-color"/>
             </div></button>
@@ -59,16 +60,30 @@
                 <input type="color"  id="color" name="color" form="frmRegister" value="#ff0000" id="bgc-color" />
             </div></button>
         </div>
+        <div class="align-text flex space-around">
+            <button id="align-left"><i class="fa-solid fa-align-left"></i></button>
+            <button id="align-center"><i class="fa-solid fa-align-center"></i></button>
+            <button id="align-right"><i class="fa-solid fa-align-right"></i></button>
+        </div>
         </div>
 
-        <div class="saving-container">
+        <div class="line"></div>
+
+        <div class="saving-container flex space-around">
             <button>save</button>
             <button><a href="#" onclick="downloadCanvas(this)" download="file-name">Download</a></button>
             <button>share</button>
         </div>    
     </div>
-    
+</div>
     </div>
+
+    <div class="gallery-buttons"> 
+        <input type="text" id="meme-txt"> 
+        <button id="back-to-gallery" onclick="showGallery()">Back to gallery</button>
+        <button id="saved" onclick="showGallery()">Saved</button>
+    </div>
+    
 
 </div>
 </section>

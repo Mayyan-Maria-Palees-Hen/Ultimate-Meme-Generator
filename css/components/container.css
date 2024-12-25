@@ -7,4 +7,37 @@
 .edit-container{
     display: flex;
     flex-direction: column;
+    width: 350px;
+    height: 450px;
+    justify-content: space-around;
+    
 }
+
+.edit-container-bgc{
+    background-color: #2e5077;
+    height: 500px;
+    width: 430px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5%;
+}
+
+.text-edit{
+    display: flex;
+    flex-direction: column;
+    height: 170px;
+    justify-content: space-around;
+    
+}
+
+.line{
+    height: 1px;
+    width: 100%;
+    background-color: #eceaea;
+}
+/* 
+.gallery-controller{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    gap: 30px;
+} */

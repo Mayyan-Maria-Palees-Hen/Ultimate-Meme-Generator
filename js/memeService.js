@@ -13,7 +13,6 @@ var gMeme = {
             font: 'Ariel',
             borderColor: 'red'
         },
-
     ]
 }
 
