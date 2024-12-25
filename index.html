@@ -6,16 +6,19 @@
         <link rel="stylesheet" href="css/style.css">
         <title>Ultimate Meme Generator</title>
     </head>
+
     <body onload="onInit()">
-
-    <section class="gallery-controller" id="gallery-controller">
-
-    <div class="main-container main-header">
-
     <div class="main-header">
     <h1>Ultimate Meme Generator</h1>
+    <button id="back-to-gallery" onclick="showGallery()">Gallery</button>
     <div class="nav-bar"></div>
     </div>
+
+    <section class="gallery-controller" id="gallery-controller"></section>
+
+    <section class="editor-controller" id="editor-controller" hidden>
+
+    <div class="main-container main-header">
 
     <div class="main-nav">
 
@@ -65,18 +68,12 @@
     
     </div>
 
-
-    </section>
-
-
-
 </div>
-  
+</section>
     
     <script src="js/memeService.js"></script>
     <script src="js/memeController.js"></script>
     <script src="js/galleryController.js"></script>
-    <script src="js/main.js"></script>
     
 </body>
 </html>
