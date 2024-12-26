@@ -1,0 +1,104 @@
+/* @media (width<720px) {
+  .main-header {
+      display: flex;
+      justify-content: space-between; 
+      align-items: center; 
+      padding: 10px 20px;
+      background-color: #f4f4f4; 
+      border-bottom: 2px solid #ccc; 
+    }
+} */
+
+/* MQ.CSS */
+
+/* עבור מסכים קטנים מאוד (פלאפונים) */
+@media screen and (max-width: 480px) {
+
+  .main-container {
+      flex-direction: column; 
+  }
+  
+  .main-nav {
+      flex-direction: column; 
+      align-items: center;
+      gap: 20px; 
+  }
+  
+  .edit-container {
+      /* width: 100%; 
+      height: auto; 
+      padding: 10px; */
+
+      display: flex;
+      flex-direction: row;
+      width: 350px;
+      height: 450px;
+      justify-content: space-around;
+  }
+  
+  .canvas-container {
+      /* width: 100%; 
+      height: auto; */
+      display: flex;
+      flex-direction: row;
+  }
+
+  .gallery-controller {
+      /* flex-direction: column; 
+      gap: 10px;  */
+      display: flex;
+      flex-direction: row;
+  }
+
+  canvas {
+      /* width: 100%; 
+      height: auto;  */
+      display: flex;
+      flex-direction: row;
+  }
+
+  .color-picker {
+      /* flex-direction: column; 
+      gap: 10px;  */
+      display: flex;
+      flex-direction: row;
+  }
+
+  .header-title {
+      font-size: 20px; 
+      display: flex;
+      flex-direction: row;
+  }
+}
+
+/* עבור טאבלטים */
+@media screen and (max-width: 768px) {
+  .main-nav {
+      flex-direction: row; 
+  }
+.main-container .main-header{
+  display: flex;
+  flex-direction: column;
+}
+  .edit-container {
+      width: 80%;
+      display: flex;
+      flex-direction: column;
+  }
+  .canvas-container {
+    display: flex;
+    flex-direction: column;
+    width: 80vw; 
+}
+}
+
+/* עבור מסכים רחבים יותר (מחשבים שולחניים) */
+/* @media screen and (min-width: 1024px) {
+  .main-nav {
+      flex-direction: row; 
+  }
+
+  .canvas-container {
+      width: 80vw; 
+  }
+} */

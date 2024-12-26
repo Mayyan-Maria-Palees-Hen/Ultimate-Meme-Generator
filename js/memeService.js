@@ -11,7 +11,7 @@ var gMeme = {
             x: 250, y: 50,
             align: 'center',
             font: 'Ariel',
-            borderColor: 'red'
+            borderColor: 'white'
         },
     ]
 }
@@ -41,7 +41,7 @@ function onAddLine() {
     const newY = gMeme.lines.length * 50 + 50
     gMeme.lines.push({
         txt: 'Add Text Here', size: 20,
-        color: 'white', x: 250, y: newY, font: 'Ariel', align: 'center', borderColor: 'red'
+        color: 'white', x: 250, y: newY, font: 'Ariel', align: 'center', borderColor: 'white'
     })
     gMeme.selectedLineIdx = gMeme.lines.length - 1
     renderMeme()
@@ -63,10 +63,9 @@ function resetMeme() {
             x: 250, y: 50,
             align: 'center',
             font: 'Ariel',
-            borderColor: 'red'
+            borderColor: 'white'
         },
 
     ]
 }
-
 

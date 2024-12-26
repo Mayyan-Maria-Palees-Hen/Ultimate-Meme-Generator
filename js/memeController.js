@@ -197,5 +197,56 @@ document.getElementById('delete-lign').addEventListener('click', () => {
     }
 })
 
+document.getElementById('save-meme').addEventListener('click', () => {
+    const dataUrl = gElCanvas.toDataURL()
+    console.log(dataUrl);
+
+    const savedMeme = { id: Date.now(), imgData: dataUrl, lines: [...gMeme.lines] }
+    saveMemeToStorage(savedMeme)
+    alert('meme saved!')
+})
+
+function showSavedMemes() {
+    document.getElementById("gallery-controller").style.display = "none";
+    document.getElementById("editor-controller").style.display = "none";
+    console.log(  document.getElementById("saved-memes-container"));
+    
+    document.getElementById("saved-memes-container").style.display = "grid";
+    
+    const savedMemes = getSavedMenes(); // Fetch saved memes from memeService
+    const savedMemesContainer = document.getElementById("saved-memes-container");
+  
+    // Clear previous content
+    savedMemesContainer.innerHTML = "";
+  
+    // Display saved memes
+    savedMemes.forEach((meme) => {
+      const memeDiv = document.createElement("div");
+      memeDiv.classList.add("saved-meme");
+  
+      const memeImg = document.createElement("img");
+      memeImg.src = meme.imgUrl; // Assuming meme has an imgUrl property
+      memeDiv.appendChild(memeImg);
+  
+      savedMemesContainer.appendChild(memeDiv);
+    });
+  }
+  
+
+function onSuccess(uploadedImgUrl) {
+    // Handle some special characters
+    const url = encodeURIComponent(uploadedImgUrl)
+    window.open(`https://www.facebook.com/sharer/sharer.php?u=${url}&t=${url}`)
+}
+
+function shareOnFacebook() {
+    const uploadedImgUrl = gElCanvas.toDataURL()
+    onSuccess(uploadedImgUrl)
+}
+
+
+
+
+
 
 

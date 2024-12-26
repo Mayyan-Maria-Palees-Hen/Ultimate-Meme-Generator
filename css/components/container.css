@@ -35,9 +35,10 @@
     width: 100%;
     background-color: #eceaea;
 }
-/* 
+
 .gallery-controller{
     display: grid;
     grid-template-columns: repeat(2,1fr);
     gap: 30px;
-} */
+}
+

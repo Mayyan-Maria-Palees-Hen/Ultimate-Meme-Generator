@@ -25,6 +25,7 @@ h1{
         overflow: clip;
         border-radius: 10px;
         border: 10px;
+        cursor: pointer;
     }
 
     

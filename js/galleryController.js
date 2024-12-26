@@ -14,6 +14,8 @@ function renderGallery() {
         { id: 10, url: 'img/10.jpg', keywords: ['serious', 'man'] },
     ]
 
+    document.getElementById("editor-controller").style.display = "none"
+
     const gallery = document.getElementById('gallery-controller')
     gImgs.forEach((img) => {
         const imgEl = document.createElement('img')
@@ -25,18 +27,24 @@ function renderGallery() {
 }
 
 function onImgSelect(id) {
-    document.getElementById('gallery-controller').hidden = true
-    document.getElementById('editor-controller').hidden = false
-
+    resetMeme()
+    document.getElementById("gallery-controller").style.display = "none"
+    document.getElementById("editor-controller").style.display = "grid"
+    document.getElementById("saved-memes-controller").style.display = "none"
     setImg(id)
     renderMeme()
-}
+  }
+//   saved-memes-controller
+  
 
-function showGallery() {
-    resetMeme()
-    document.getElementById('gallery-controller').hidden = false
-    document.getElementById('editor-controller').hidden = true
-}
+  function showGallery() {
+    // Show gallery and hide editor by toggling the 'hidden' attribute
+    document.getElementById("gallery-controller").style.display = "grid"
+    document.getElementById("editor-controller").style.display = "none"
+    document.getElementById("saved-memes-container").style.display = "none"
+  }
+  
+  
 
 
 
