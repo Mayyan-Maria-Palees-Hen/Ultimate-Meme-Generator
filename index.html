@@ -13,9 +13,15 @@
 
     <body onload="onInit()">
     <div class="main-header">
-    <h1>Ultimate Meme Generator</h1>
+    <h1 class="header-title">Ultimate Meme Generator</h1>
   <!--   <button id="back-to-gallery" onclick="showGallery()">Gallery</button> -->
-    <div class="nav-bar"></div>
+    <div class="nav-bar">
+        <ul class="nav-links">
+            <li><a href="#" onclick="showGallery()">Gallery</a></li>
+            <li><a href="#">Saved</a></li>
+            <!-- <li><a href="#">Gallery</a></li> -->
+        </ul>
+    </div>
     </div>
 
     <section class="gallery-controller " id="gallery-controller"></section>

@@ -36,9 +36,10 @@ function drawText(gCtx, line, isSelected) {
     gCtx.textAlign = line.align
     gCtx.fillText(line.txt, line.x, line.y)
     gCtx.strokeStyle = line.borderColor
-    // if (isSelected) {
-    //     drewFrame(gCtx, line)
-    // }
+    gCtx.strokeText(line.txt, line.x, line.y)
+    if (isSelected) {
+        drewFrame(gCtx, line)
+    }
 }
 
 function drewFrame(gCtx, line) {
