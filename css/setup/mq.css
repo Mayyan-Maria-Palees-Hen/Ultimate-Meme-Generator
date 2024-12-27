@@ -1,104 +1,121 @@
-/* @media (width<720px) {
-  .main-header {
-      display: flex;
-      justify-content: space-between; 
-      align-items: center; 
-      padding: 10px 20px;
-      background-color: #f4f4f4; 
-      border-bottom: 2px solid #ccc; 
-    }
-} */
-
-/* MQ.CSS */
-
-/* עבור מסכים קטנים מאוד (פלאפונים) */
-@media screen and (max-width: 480px) {
-
-  .main-container {
-      flex-direction: column; 
-  }
-  
-  .main-nav {
-      flex-direction: column; 
-      align-items: center;
-      gap: 20px; 
-  }
-  
-  .edit-container {
-      /* width: 100%; 
-      height: auto; 
-      padding: 10px; */
-
-      display: flex;
-      flex-direction: row;
-      width: 350px;
-      height: 450px;
-      justify-content: space-around;
-  }
-  
-  .canvas-container {
-      /* width: 100%; 
-      height: auto; */
-      display: flex;
-      flex-direction: row;
+/* Tablet and smaller desktops: ~ up to 1024px */
+@media (max-width: 1024px) {
+  h1 {
+    font-size: 50px; /* Scale down the heading */
   }
 
+  .gallery-buttons input {
+    width: 400px; /* Make the input narrower on medium screens */
+    height: 70px;
+  }
+
+  .edit-container,
+  .edit-container-bgc {
+    width: 300px;
+  }
   .gallery-controller {
-      /* flex-direction: column; 
-      gap: 10px;  */
-      display: flex;
-      flex-direction: row;
+    grid-template-columns: repeat(1, 1fr); /* Show one image per row */
+    gap: 20px; /* Adjust gap if necessary */
   }
-
-  canvas {
-      /* width: 100%; 
-      height: auto;  */
-      display: flex;
-      flex-direction: row;
-  }
-
-  .color-picker {
-      /* flex-direction: column; 
-      gap: 10px;  */
-      display: flex;
-      flex-direction: row;
-  }
-
-  .header-title {
-      font-size: 20px; 
-      display: flex;
-      flex-direction: row;
-  }
-}
-
-/* עבור טאבלטים */
-@media screen and (max-width: 768px) {
   .main-nav {
-      flex-direction: row; 
+    flex-direction: column; /* Stack the canvas and editor vertically */
+    align-items: center; /* Center align the items */
+    gap: 20px; /* Add some spacing between the canvas and editor */
   }
-.main-container .main-header{
-  display: flex;
-  flex-direction: column;
-}
-  .edit-container {
-      width: 80%;
-      display: flex;
-      flex-direction: column;
-  }
-  .canvas-container {
-    display: flex;
-    flex-direction: column;
-    width: 80vw; 
-}
 }
 
-/* עבור מסכים רחבים יותר (מחשבים שולחניים) */
-/* @media screen and (min-width: 1024px) {
+/* Mobile landscape & portrait: ~ up to 768px */
+/* Mobile landscape & portrait: ~ up to 768px */
+@media (max-width: 768px) {
+  /* Stack editor section under the canvas */
   .main-nav {
-      flex-direction: row; 
+    flex-direction: column; /* Stack elements vertically */
+    align-items: center;
   }
 
   .canvas-container {
-      width: 80vw; 
+    margin-bottom: 20px; /* Add spacing between canvas and editor */
   }
-} */
+
+  .edit-container-bgc {
+    width: 100%; /* Make editor container full width */
+    max-width: 400px; /* Optional: limit max width */
+  }
+
+  /* Adjust gallery buttons section */
+  .gallery-buttons {
+    flex-direction: column; /* Stack buttons vertically */
+    align-items: center;
+    gap: 10px; /* Add spacing between elements */
+    margin-top: 20px; /* Add spacing from previous sections */
+  }
+
+  .gallery-buttons input {
+    width: 90%; /* Adjust width to fit smaller screens */
+    max-width: 300px; /* Optional: limit max width */
+  }
+
+  #back-to-gallery,
+  #saved {
+    width: 90%; /* Adjust width to match the input text field */
+    max-width: 300px; /* Optional: limit max width */
+  }
+}
+
+/* Smaller mobile devices: ~ up to 480px */
+@media (max-width: 480px) {
+  h1 {
+    font-size: 32px;
+  }
+
+  .nav-links a {
+    font-size: 16px;
+  }
+
+  .gallery-buttons input {
+    width: 100%;
+    max-width: 250px;
+    height: 50px;
+  }
+
+  .edit-container,
+  .edit-container-bgc {
+    width: 90%;
+    height: auto;
+    border-radius: 10px;
+  }
+
+  /* Buttons */
+  .text-nav button,
+  .color-picker button,
+  .align-text button,
+  .font button {
+    width: auto;
+    height: 40px;
+    font-size: 16px;
+  }
+
+  #font-family {
+    width: 150px;
+    font-size: 16px;
+  }
+
+  #back-to-gallery {
+    width: 180px;
+    font-size: 18px;
+  }
+
+  #saved {
+    width: 120px;
+    font-size: 18px;
+  }
+  .gallery-controller {
+    grid-template-columns: repeat(1, 1fr); /* One image per row */
+    gap: 10px; /* Reduce gap for very small screens */
+  }
+  .main-nav {
+    flex-direction: column; /* Stack vertically */
+    align-items: center; /* Center the content */
+    gap: 10px; /* Reduce the spacing for very small screens */
+}
+}

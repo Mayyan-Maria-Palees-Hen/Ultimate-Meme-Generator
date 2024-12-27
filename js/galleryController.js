@@ -41,7 +41,7 @@ function onImgSelect(id) {
     // Show gallery and hide editor by toggling the 'hidden' attribute
     document.getElementById("gallery-controller").style.display = "grid"
     document.getElementById("editor-controller").style.display = "none"
-    document.getElementById("saved-memes-container").style.display = "none"
+    document.getElementById("saved-memes-controller").style.display = "none"
   }
   
   

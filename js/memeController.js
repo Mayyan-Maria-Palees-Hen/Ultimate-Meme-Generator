@@ -199,7 +199,7 @@ document.getElementById('delete-lign').addEventListener('click', () => {
 
 document.getElementById('save-meme').addEventListener('click', () => {
     const dataUrl = gElCanvas.toDataURL()
-    console.log(dataUrl);
+    // console.log(dataUrl);
 
     const savedMeme = { id: Date.now(), imgData: dataUrl, lines: [...gMeme.lines] }
     saveMemeToStorage(savedMeme)
@@ -209,12 +209,11 @@ document.getElementById('save-meme').addEventListener('click', () => {
 function showSavedMemes() {
     document.getElementById("gallery-controller").style.display = "none";
     document.getElementById("editor-controller").style.display = "none";
-    console.log(  document.getElementById("saved-memes-container"));
-    
-    document.getElementById("saved-memes-container").style.display = "grid";
-    
-    const savedMemes = getSavedMenes(); // Fetch saved memes from memeService
-    const savedMemesContainer = document.getElementById("saved-memes-container");
+  
+    document.getElementById("saved-memes-controller").style.display = "grid";
+  
+    const savedMemes = loadFromStorage(); // Fetch saved memes from memeService
+    const savedMemesContainer = document.getElementById("saved-memes-controller");
   
     // Clear previous content
     savedMemesContainer.innerHTML = "";
@@ -225,13 +224,12 @@ function showSavedMemes() {
       memeDiv.classList.add("saved-meme");
   
       const memeImg = document.createElement("img");
-      memeImg.src = meme.imgUrl; // Assuming meme has an imgUrl property
+      memeImg.src = meme.imgData; // Assuming meme has an imgUrl property
       memeDiv.appendChild(memeImg);
   
       savedMemesContainer.appendChild(memeDiv);
-    });
+    });
   }
-  
 
 function onSuccess(uploadedImgUrl) {
     // Handle some special characters
